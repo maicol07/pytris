@@ -206,95 +206,97 @@ def modalita1(g1,g2,f): #....
             print("\n","CONGRATULAZIONI GIOCATORE 2!!! HAI VINTO!!!!")
             creatabellone(m)
             break
-        f.write("m")
+        f.write(str(m))
     print()
     return "PARTITA TERMINATA"
 def controllocellenemiche(m): #GMO
     simbolovitt=""
     if (m[0][0]=="X" and m[0][1]=="X"):
         if(m[0][2]==""):
-            m[0][2]=="O"
+            m[0][2]="O"
     elif (m[0][0]=="X" and m[0][2]=="X"):
         if(m[0][1]==""):
-            m[0][1]=="O"
+            m[0][1]="O"
     elif (m[0][1]=="X" and m[0][2]=="X"):
         if(m[0][0]==""):
-            m[0][0]=="O"
+            m[0][0]="O"
     elif (m[1][0]=="X" and m[1][1]=="X"):
         if(m[1][2]==""):
-            m[1][2]=="O"
+            m[1][2]="O"
     elif (m[1][1]=="X" and m[1][2]=="X"):
         if(m[1][0]==""):
-            m[1][0]=="O"
+            m[1][0]="O"
     elif (m[1][0]=="X" and m[1][2]=="X"):
         if(m[1][1]==""):
-            m[1][1]=="O"
+            m[1][1]="O"
     elif (m[2][0]=="X" and m[2][1]=="X"):
         if(m[2][2]==""):
-            m[2][2]=="O"
+            m[2][2]="O"
     elif (m[2][1]=="X" and m[2][2]=="X"):
         if(m[2][0]==""):
-            m[2][0]=="O"
+            m[2][0]="O"
     elif (m[2][0]=="X" and m[2][2]=="X"):
         if(m[2][1]==""):
-            m[2][1]=="O"
+            m[2][1]="O"
     elif (m[0][0]=="X" and m[1][0]=="X"):
         if(m[2][0]==""):
-            m[2][0]=="O"
+            m[2][0]="O"
     elif (m[1][0]=="X" and m[2][0]=="X"):
         if(m[0][0]==""):
-            m[0][0]=="O"
+            m[0][0]="O"
     elif (m[0][0]=="X" and m[2][0]=="X"):
         if(m[1][0]==""):
-            m[1][0]=="O"
+            m[1][0]="O"
     elif (m[0][1]=="X" and m[1][1]=="X"):
         if(m[2][1]==""):
-            m[2][1]=="O"
+            m[2][1]="O"
     elif (m[1][1]=="X" and m[2][1]=="X"):
         if(m[0][1]==""):
-            m[0][1]=="O"
+            m[0][1]="O"
     elif (m[0][1]=="X" and m[2][1]=="X"):
         if(m[1][1]==""):
-            m[1][1]=="O"
+            m[1][1]="O"
     elif (m[0][2]=="X" and m[1][2]=="X"):
         if(m[2][2]==""):
-            m[2][2]=="O"
+            m[2][2]="O"
     elif (m[1][2]=="X" and m[2][2]=="X"):
         if(m[0][2]==""):
-            m[0][2]=="O"
+            m[0][2]="O"
     elif (m[0][2]=="X" and m[2][2]=="X"):
         if(m[1][2]==""):
-            m[1][2]=="O"
+            m[1][2]="O"
     elif (m[1][1]=="X" and m[2][2]=="X"):
         if(m[0][0]==""):
-            m[0][0]=="O"
+            m[0][0]="O"
     elif (m[0][2]=="X" and m[1][1]=="X"):
         if(m[2][0]==""):
-            m[2][0]=="O"
+            m[2][0]="O"
     elif (m[0][0]=="X" and m[2][2]=="X"):
         if(m[1][1]==""):
-            m[1][1]=="O"
+            m[1][1]="O"
     elif (m[0][0]=="X" and m[1][1]=="X"):
         if(m[2][2]==""):
-            m[2][2]=="O"
+            m[2][2]="O"
     elif (m[0][2]=="X" and m[2][0]=="X"):
         if(m[1][1]==""):
-            m[1][1]=="O"
+            m[1][1]="O"
     elif (m[1][1]=="X" and m[2][0]=="X"):
         if(m[0][2]==""):
-            m[0][2]=="O"
+            m[0][2]="O"
+    else:
+        return False
     return False
 def controllocelle(m): #TBO e RCE
     #righe:
     if (m[0][0]=="O" and m[0][1]=="O"):
         if (m[0][2]==""):
-            m[0][2]=="O"
+            m[0][2]="O"
     elif (m[0][1]=="O" and m[0][2]=="O"):
         if (m[0][0]==""):
-            m[0][0]=="O"
+            m[0][0]="O"
     elif (m[0][2]=="O" and m[0][0]=="O"):
         if (m[0][1]==""):
-            m[0][1]=="O"
+            m[0][1]="O"
     elif (m[1][0]=="O" and m[1][1]=="O"):
         if(m[1][2]==""):
             m[1][2]="O"
@@ -360,6 +362,8 @@ def controllocelle(m): #TBO e RCE
     elif (m[1][1]=="O" and m[0][2]=="O"):
         if(m[2][0]==""):
             m[2][0]="O"
+    else:
+        return False
     return False
 def attaccocasuale(m,mossasucc): #GMO e MBA
     riga=randint(0,2)
@@ -411,8 +415,10 @@ def modalita2(g1,f):
             else:
                 mossasucc="g1"
                 print("TOCCA AL PC!")
-                if (not(controllocelle(m)==True)):
-                    if (not(controllocellenemiche(m)==True)):
+                c1=controllocellenemiche(m)
+                if (c1==False):
+                    c2=controllocelle(m)
+                    if (c2==False):
                         attaccocasuale(m,mossasucc)
         simbolovitt=vittoriaono2(m,mossasucc)
         if (simbolovitt=="X"):
@@ -428,7 +434,7 @@ def modalita2(g1,f):
             print("\n","CONGRATULAZIONI PC!!! HAI VINTO!!!!, MI DISPIACE GIOCATORE 1 HAI PERSO!!")
             creatabellone(m)
             break
-        f.write("m")
+        f.write(str(m))
     print()
     return "PARTITA TERMINATA"
 ##### APERTURA FILE ECC.. #####
@@ -440,7 +446,12 @@ f=open(r"tabellone.txt","r+")
 print("BENVENUTO IN TRIS SIMULATOR!")
 scelta=-1
 while (scelta!=-2):
-    print("LE MODALITA' DI GIOCO POSSIBILI SONO:","\n","0:G1 vs G2","\n","1:G1 vs PC","\n","2:G1 vs Super PC","\n","-2: Esci dal gioco")
+    print("LE MODALITA' DI GIOCO POSSIBILI SONO:")
+    print("\n","0:G1 vs G2")
+    print("1:G1 vs PC")
+    print("2:G1 vs Super PC")
+    print("3: IMPOSTAZIONI (NEW!!)")
+    print("-2: Esci dal gioco")
     scelta=int(input("Inserisci la tua scelta: "))
     if scelta==0:
         g1="X"
@@ -451,4 +462,6 @@ while (scelta!=-2):
         print(modalita2(g1,f))
     if (scelta==2):
         print(modalita3())
+    if (scelta==3):
+        print(impostazioni())
 f.close()
