@@ -120,7 +120,7 @@ def vittoriaono2(m,mossasucc): #MBA (copia e incolla da sopra)
         else:
             simbolovitt="O"
     if ((m[0][0]=="X" and m[1][0]=="X" and m[2][0]=="X") or
-        (m[1][0]=="O" and m[1][0]=="O" and m[2][0]=="O")):
+        (m[0][0]=="O" and m[1][0]=="O" and m[2][0]=="O")):
         if (mossasucc=="PC"):
             simbolovitt="X"
         else:
@@ -922,6 +922,8 @@ scelta=-1
 #Creazione finestra GUI #MBA
 welcomegraph()
 while (scelta!=-2):
+    g1=st["g1"]
+    g2=st["g2"]
     print("LE MODALITA' DI GIOCO POSSIBILI SONO:")
     print("\n","0:G1 vs G2")
     print("1:G1 vs PC")
