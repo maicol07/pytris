@@ -441,7 +441,7 @@ def attaccoByTabVecchio(m,mOld): #GMO
                 cont2=0
             i1=i1+1
             cont2=cont2+1
-def modalita3():
+def modalita3(): #MBA, TBO, RCE e GMO
     global f
     f=open(r"tabellone.txt","r+")
     m=[["","",""],["","",""],["","",""]]
@@ -517,7 +517,8 @@ def modalita3():
     f.close()
     print()
     return "PARTITA TERMINATA"
-def addsimbolo00():
+##### GRAFICA #####
+def addsimbolo00(): #MBA
     if (m[0][0]==""):
         if (turno==0):
             simb="X"
@@ -529,7 +530,7 @@ def addsimbolo00():
         tkinter.messagebox.showerror(title="Errore di sovrascrittura simbolo",message="Non puoi sovrascrivere un simbolo già esistente! Scegliere un'altra posizione")
         return False
     w1.quit()
-def addsimbolo01():
+def addsimbolo01(): #MBA
     if (m[0][1]==""):
         if (turno==0):
             simb="X"
@@ -541,7 +542,7 @@ def addsimbolo01():
         tkinter.messagebox.showerror(title="Errore di sovrascrittura simbolo",message="Non puoi sovrascrivere un simbolo già esistente! Scegliere un altra posizione")
         return False
     w1.quit()
-def addsimbolo02():
+def addsimbolo02(): #MBA
     if (m[0][2]==""):
         if (turno==0):
             simb="X"
@@ -553,7 +554,7 @@ def addsimbolo02():
         tkinter.messagebox.showerror(title="Errore di sovrascrittura simbolo",message="Non puoi sovrascrivere un simbolo già esistente! Scegliere un altra posizione")
         return False
     w1.quit()
-def addsimbolo10():
+def addsimbolo10(): #MBA
     if (m[1][0]==""):
         if (turno==0):
             simb="X"
@@ -565,7 +566,7 @@ def addsimbolo10():
         tkinter.messagebox.showerror(title="Errore di sovrascrittura simbolo",message="Non puoi sovrascrivere un simbolo già esistente! Scegliere un altra posizione")
         return False
     w1.quit()
-def addsimbolo11():
+def addsimbolo11(): #MBA
     if (m[1][1]==""):
         if (turno==0):
             simb="X"
@@ -577,7 +578,7 @@ def addsimbolo11():
         tkinter.messagebox.showerror(title="Errore di sovrascrittura simbolo",message="Non puoi sovrascrivere un simbolo già esistente! Scegliere un altra posizione")
         return False
     w1.quit()
-def addsimbolo12():
+def addsimbolo12(): #MBA
     if (m[1][2]==""):
         if (turno==0):
             simb="X"
@@ -589,7 +590,7 @@ def addsimbolo12():
         tkinter.messagebox.showerror(title="Errore di sovrascrittura simbolo",message="Non puoi sovrascrivere un simbolo già esistente! Scegliere un altra posizione")
         return False
     w1.quit()
-def addsimbolo20():
+def addsimbolo20(): #MBA
     if (m[2][0]==""):
         if (turno==0):
             simb="X"
@@ -601,7 +602,7 @@ def addsimbolo20():
         tkinter.messagebox.showerror(title="Errore di sovrascrittura simbolo",message="Non puoi sovrascrivere un simbolo già esistente! Scegliere un altra posizione")
         return False
     w1.quit()
-def addsimbolo21():
+def addsimbolo21(): #MBA
     if (m[2][1]==""):
         if (turno==0):
             simb="X"
@@ -613,7 +614,7 @@ def addsimbolo21():
         tkinter.messagebox.showerror(title="Errore di sovrascrittura simbolo",message="Non puoi sovrascrivere un simbolo già esistente! Scegliere un altra posizione")
         return False
     w1.quit()
-def addsimbolo22():
+def addsimbolo22(): #MBA
     if (m[2][2]==""):
         if (turno==0):
             simb="X"
