@@ -2,7 +2,7 @@
 #                         #
 #           TRIS          #
 #    written in Python    #
-#        v. 2.1.1b        #
+#        v. 2.2           #
 #                         #
 ###########################
 
@@ -56,7 +56,7 @@ def vittoriaono(m,mossasucc): #MBA e TBO
         else:
             simbolovitt="O"
     if ((m[0][0]=="X" and m[1][0]=="X" and m[2][0]=="X") or
-        (m[1][0]=="O" and m[1][0]=="O" and m[2][0]=="O")):
+        (m[0][0]=="O" and m[1][0]=="O" and m[2][0]=="O")):
         if (mossasucc=="g2"):
             simbolovitt="X"
         else:
@@ -67,8 +67,8 @@ def vittoriaono(m,mossasucc): #MBA e TBO
             simbolovitt="X"
         else:
             simbolovitt="O"
-    if ((m[2][0]=="X" and m[2][1]=="X" and m[2][2]=="X") or
-        (m[2][0]=="O" and m[2][1]=="O" and m[2][2]=="O")):
+    if ((m[0][2]=="X" and m[1][2]=="X" and m[2][2]=="X") or
+        (m[0][2]=="O" and m[1][2]=="O" and m[2][2]=="O")):
         if (mossasucc=="g2"):
             simbolovitt="X"
         else:
@@ -131,8 +131,8 @@ def vittoriaono2(m,mossasucc): #MBA (copia e incolla da sopra)
             simbolovitt="X"
         else:
             simbolovitt="O"
-    if ((m[2][0]=="X" and m[2][1]=="X" and m[2][2]=="X") or
-        (m[2][0]=="O" and m[2][1]=="O" and m[2][2]=="O")):
+    if ((m[0][2]=="X" and m[1][2]=="X" and m[2][2]=="X") or
+        (m[0][2]=="O" and m[1][2]=="O" and m[2][2]=="O")):
         if (mossasucc=="PC"):
             simbolovitt="X"
         else:
@@ -150,7 +150,7 @@ def vittoriaono2(m,mossasucc): #MBA (copia e incolla da sopra)
         else:
             simbolovitt="O"
     return simbolovitt
-def modalita1(g1,g2): #MBA e TBO
+def modalita1(): #MBA e TBO
     global f
     f=open(r"tabellone.txt","a")
     m=[["","",""],["","",""],["","",""]]
@@ -344,7 +344,7 @@ def attaccocasuale(m,mossasucc): #GMO e MBA
         colonna=randint(0,2)
     mossa2=(riga,colonna)
     aggiungiMossa(m,mossa2,mossasucc)
-def modalita2(g1): #MBA, GMO, TBO, RCE
+def modalita2(): #MBA, GMO, TBO, RCE
     global f
     f=open(r"tabellone.txt","a")
     m=[["","",""],["","",""],["","",""]]
@@ -518,79 +518,130 @@ def modalita3():
     print()
     return "PARTITA TERMINATA"
 def addsimbolo00():
-    if (i==0):
-        simb="X"
-        m[0][0]="X"
-    elif (i==1):
-        simb="O"
-        m[0][0]="O"
+    if (m[0][0]==""):
+        if (turno==0):
+            simb="X"
+            m[0][0]="X"
+        elif (turno==1):
+            simb="O"
+            m[0][0]="O"
+    else:
+        tkinter.messagebox.showerror(title="Errore di sovrascrittura simbolo",message="Non puoi sovrascrivere un simbolo già esistente! Scegliere un'altra posizione")
+        return False
+    w1.quit()
 def addsimbolo01():
-    if (i==0):
-        simb="X"
-        m[0][1]="X"
-    elif (i==1):
-        simb="O"
-        m[0][1]="O"
+    if (m[0][1]==""):
+        if (turno==0):
+            simb="X"
+            m[0][1]="X"
+        elif (turno==1):
+            simb="O"
+            m[0][1]="O"
+    else:
+        tkinter.messagebox.showerror(title="Errore di sovrascrittura simbolo",message="Non puoi sovrascrivere un simbolo già esistente! Scegliere un altra posizione")
+        return False
+    w1.quit()
 def addsimbolo02():
-    if (i==0):
-        simb="X"
-        m[0][2]="X"
-    elif (i==1):
-        simb="O"
-        m[0][2]="O"
+    if (m[0][2]==""):
+        if (turno==0):
+            simb="X"
+            m[0][2]="X"
+        elif (turno==1):
+            simb="O"
+            m[0][2]="O"
+    else:
+        tkinter.messagebox.showerror(title="Errore di sovrascrittura simbolo",message="Non puoi sovrascrivere un simbolo già esistente! Scegliere un altra posizione")
+        return False
+    w1.quit()
 def addsimbolo10():
-    if (i==0):
-        simb="X"
-        m[1][0]="X"
-    elif (i==1):
-        simb="O"
-        m[1][0]="O"
+    if (m[1][0]==""):
+        if (turno==0):
+            simb="X"
+            m[1][0]="X"
+        elif (turno==1):
+            simb="O"
+            m[1][0]="O"
+    else:
+        tkinter.messagebox.showerror(title="Errore di sovrascrittura simbolo",message="Non puoi sovrascrivere un simbolo già esistente! Scegliere un altra posizione")
+        return False
+    w1.quit()
 def addsimbolo11():
-    if (i==0):
-        simb="X"
-        m[1][1]="X"
-    elif (i==1):
-        simb="O"
-        m[1][1]="O"
+    if (m[1][1]==""):
+        if (turno==0):
+            simb="X"
+            m[1][1]="X"
+        elif (turno==1):
+            simb="O"
+            m[1][1]="O"
+    else:
+        tkinter.messagebox.showerror(title="Errore di sovrascrittura simbolo",message="Non puoi sovrascrivere un simbolo già esistente! Scegliere un altra posizione")
+        return False
+    w1.quit()
 def addsimbolo12():
-    if (i==0):
-        simb="X"
-        m[1][2]="X"
-    elif (i==1):
-        simb="O"
-        m[1][2]="O"
+    if (m[1][2]==""):
+        if (turno==0):
+            simb="X"
+            m[1][2]="X"
+        elif (turno==1):
+            simb="O"
+            m[1][2]="O"
+    else:
+        tkinter.messagebox.showerror(title="Errore di sovrascrittura simbolo",message="Non puoi sovrascrivere un simbolo già esistente! Scegliere un altra posizione")
+        return False
+    w1.quit()
 def addsimbolo20():
-    if (i==0):
-        simb="X"
-        m[2][0]="X"
-    elif (i==1):
-        simb="O"
-        m[2][0]="O"
+    if (m[2][0]==""):
+        if (turno==0):
+            simb="X"
+            m[2][0]="X"
+        elif (turno==1):
+            simb="O"
+            m[2][0]="O"
+    else:
+        tkinter.messagebox.showerror(title="Errore di sovrascrittura simbolo",message="Non puoi sovrascrivere un simbolo già esistente! Scegliere un altra posizione")
+        return False
+    w1.quit()
 def addsimbolo21():
-    if (i==0):
-        simb="X"
-        m[2][1]="X"
-    elif (i==1):
-        simb="O"
-        m[2][1]="O"
+    if (m[2][1]==""):
+        if (turno==0):
+            simb="X"
+            m[2][1]="X"
+        elif (turno==1):
+            simb="O"
+            m[2][1]="O"
+    else:
+        tkinter.messagebox.showerror(title="Errore di sovrascrittura simbolo",message="Non puoi sovrascrivere un simbolo già esistente! Scegliere un altra posizione")
+        return False
+    w1.quit()
 def addsimbolo22():
-    if (i==0):
-        simb="X"
-        m[2][2]="X"
-    elif (i==1):
-        simb="O"
-        m[2][2]="O"
-def tabgraph():
+    if (m[2][2]==""):
+        if (turno==0):
+            simb="X"
+            m[2][2]="X"
+        elif (turno==1):
+            simb="O"
+            m[2][2]="O"
+    else:
+        tkinter.messagebox.showerror(title="Errore di sovrascrittura simbolo",message="Non puoi sovrascrivere un simbolo già esistente! Scegliere un altra posizione")
+        return False
+    w1.quit()
+def tabgraph1(): #MBA
     global turno
-    turno=0
-    while i!=-1:
+    vincitore="G0"
+    turno=randint(0,1)
+    while turno!=-1:
         if (turno==0):
             g=g1
+            mossasucc="g2"
         elif (turno==1):
             g=g2
+            mossasucc="g1"
+        global w1
         w1=Tk()
         w1.title("PYTRIS G1 VS G2")
-        intest=Label(w1,text="TABELLONE")
+        w1.geometry("%dx%d+%d+%d" % (200, 200, 600, 250))
+        intest=Label(w1,text="TABELLONE (G1 VS G2)",font="Tahoma 12 bold")
+        intest.pack()
         f1=Frame(w1)
         f1.pack()
         b00=Button(f1,text=m[0][0],command=addsimbolo00)
@@ -611,16 +662,32 @@ def tabgraph():
         b20.grid(row=2,column=0)
         b21.grid(row=2,column=1)
         b22.grid(row=2,column=2)
-        tg="Turno di"+g
-        giocatore=Label(f1,text=tg)
-        giocatore.grid(row=3,column=0)
+        fg=Frame(w1)
+        fg.pack()
+        tg="Turno di "+g
+        giocatore=Label(fg,text=tg)
+        giocatore.pack()
         w1.mainloop()
         w1.destroy()
         if (turno==1):
             turno=-1
         if (controllotabpieno(m)==True):
-            turno=-2
+            tkinter.messagebox.showinfo(title="PAREGGIO!!", message="Nessun giocatore ha vinto! Andrà meglio la prossim volta!!")
+            break
+        if (vittoriaono(m,mossasucc)=="X"):
+            vincitore="g1"
+        if (vittoriaono(m,mossasucc)=="O"):
+            vincitore="g2"
+        if (vintoono(vincitore)=="G1"):
+            tkinter.messagebox.showinfo(title="VITTORIA!!", message="CONGRATULAZIONI "+g1+" HAI VINTO!!!!")
+            break
+        elif (vintoono(vincitore)=="G2"):
+            tkinter.messagebox.showinfo(title="VITTORIA!!", message="CONGRATULAZIONI "+g2+" HAI VINTO!!!!")
+            break
         turno+=1
+        #Scrittura su file del numero del tabellone
+        f.write(str(m)+"\n")
+    f.close()
 def mod1graph(): #MBA
     global f
     f=open(r"tabellone.txt","a")
@@ -630,79 +697,168 @@ def mod1graph(): #MBA
     v="G0"
     vincitore="G0"
     while (v!="G1" or v!="G2"):
-        tabgraph()
-        if m==[["","",""],["","",""],["","",""]]:
-          print("LANCIO DELLA MONETA!")
-          if (randint(0,1)==0):
-            print("INIZIA", g1,"!")
-            mossa1X=int(input(g1+", inserisci la riga dove vuoi fare la tua mossa: "))
-            mossa1Y=int(input(g1+", inserisci la colonna dove vuoi fare la tua mossa: "))
-            mossa1=(mossa1X,mossa1Y)
+        tabgraph1()
+        break
+    tkinter.messagebox.showinfo(title="PARTITA TERMINATA", message="Partita terminata!")
+def tabgraph2(): #MBA
+    global turno
+    vincitore="G0"
+    turno=randint(0,1)
+    while turno!=-1:
+        if (turno==0):
+            g=g1
             mossasucc="g2"
-            while (m[mossa1X][mossa1Y]=="O" or m[mossa1X][mossa1Y]=="X"):
-                print("NON PUOI SOVRASCRIVERE UN SIMBOLO GIA' ESISTENTE!!")
-                mossa1X=int(input(g1+", inserisci la riga dove vuoi fare la tua mossa: "))
-                mossa1Y=int(input(g1+", inserisci la colonna dove vuoi fare la tua mossa: "))
-                mossa1=(mossa1X,mossa1Y)
-            aggiungiMossa(m,mossa1,mossasucc)
-          else:
-            print("INIZIA IL GIOCATORE 2!")
-            mossa2X=int(input(g2+", inserisci la riga dove vuoi fare la tua mossa: "))
-            mossa2Y=int(input(g2+", inserisci la colonna dove vuoi fare la tua mossa: "))            
-            mossa2=(mossa2X,mossa2Y)
+            global w1
+            w1=Tk()
+            w1.title("PYTRIS G1 VS PC")
+            w1.geometry("%dx%d+%d+%d" % (200, 200, 600, 250))
+            intest=Label(w1,text="TABELLONE (G1 VS PC)",font="Tahoma 12 bold")
+            intest.pack()
+            f1=Frame(w1)
+            f1.pack()
+            b00=Button(f1,text=m[0][0],command=addsimbolo00)
+            b01=Button(f1,text=m[0][1],command=addsimbolo01)
+            b02=Button(f1,text=m[0][2],command=addsimbolo02)
+            b10=Button(f1,text=m[1][0],command=addsimbolo10)
+            b11=Button(f1,text=m[1][1],command=addsimbolo11)
+            b12=Button(f1,text=m[1][2],command=addsimbolo12)
+            b20=Button(f1,text=m[2][0],command=addsimbolo20)
+            b21=Button(f1,text=m[2][1],command=addsimbolo21)
+            b22=Button(f1,text=m[2][2],command=addsimbolo22)
+            b00.grid(row=0,column=0)
+            b01.grid(row=0,column=1)
+            b02.grid(row=0,column=2)
+            b10.grid(row=1,column=0)
+            b11.grid(row=1,column=1)
+            b12.grid(row=1,column=2)
+            b20.grid(row=2,column=0)
+            b21.grid(row=2,column=1)
+            b22.grid(row=2,column=2)
+            fg=Frame(w1)
+            fg.pack()
+            tg="Turno di "+g
+            giocatore=Label(fg,text=tg)
+            giocatore.pack()
+            w1.mainloop()
+            w1.destroy()
+        elif (turno==1):
+            g=g2
             mossasucc="g1"
-            while (m[mossa2X][mossa2Y]=="O" or m[mossa2X][mossa2Y]=="X"):
-                print("NON PUOI SOVRASCRIVERE UN SIMBOLO GIA' ESISTENTE!!")
-                mossa2X=int(input(g2+", inserisci la riga dove vuoi fare la tua mossa: "))
-                mossa2Y=int(input(g2+", inserisci la colonna dove vuoi fare la tua mossa: "))            
-                mossa2=(mossa2X,mossa2Y)
-            else:
-                aggiungiMossa(m,mossa2,mossasucc)
-        else:
-            if (mossasucc=="g1"):
-                mossa1X=int(input(g1+", inserisci la riga dove vuoi fare la tua mossa: "))
-                mossa1Y=int(input(g1+", inserisci la colonna dove vuoi fare la tua mossa: "))
-                mossa1=(mossa1X,mossa1Y)
-                mossasucc="g2"
-                while (m[mossa1X][mossa1Y]=="O" or m[mossa1X][mossa1Y]=="X"):
-                    print("NON PUOI SOVRASCRIVERE UN SIMBOLO GIA' ESISTENTE!!")
-                    mossa1X=int(input(g1+", inserisci la riga dove vuoi fare la tua mossa: "))
-                    mossa1Y=int(input(g1+", inserisci la colonna dove vuoi fare la tua mossa: "))
-                    mossa1=(mossa1X,mossa1Y)
-                aggiungiMossa(m,mossa1,mossasucc)
-            else:
-                mossa2X=int(input(g2+", inserisci la riga dove vuoi fare la tua mossa: "))
-                mossa2Y=int(input(g2+", inserisci la colonna dove vuoi fare la tua mossa: "))
-                mossa2=(mossa2X,mossa2Y)
-                mossasucc="g1"
-                while (m[mossa2X][mossa2Y]=="O" or m[mossa2X][mossa2Y]=="X"):
-                    print("NON PUOI SOVRASCRIVERE UN SIMBOLO GIA' ESISTENTE!!")
-                    mossa2X=int(input(g2+", inserisci la riga dove vuoi fare la tua mossa: "))
-                    mossa2Y=int(input(g2+", inserisci la colonna dove vuoi fare la tua mossa: "))            
-                    mossa2=(mossa2X,mossa2Y)
-                aggiungiMossa(m,mossa2,mossasucc)
-        simbolovitt=vittoriaono(m,mossasucc)
-        if (simbolovitt=="X"):
+            if (controllocelle(m)==False):
+                if (controllocellenemiche(m)==False):
+                    attaccocasuale(m,mossasucc)
+        if (turno==1):
+            turno=-1
+        if (controllotabpieno(m)==True):
+            tkinter.messagebox.showinfo(title="PAREGGIO!!", message="Nessun giocatore ha vinto! Andrà meglio la prossima volta!!")
+            break
+        if (vittoriaono(m,mossasucc)=="X"):
             vincitore="g1"
-        if (simbolovitt=="O"):
+        if (vittoriaono(m,mossasucc)=="O"):
             vincitore="g2"
-        v=vintoono(vincitore)
-        if (v=="G1"):
-            print("\n","CONGRATULAZIONI", g1," HAI VINTO!!!!")
-            creatabellone(m)
+        if (vintoono(vincitore)=="G1"):
+            tkinter.messagebox.showinfo(title="VITTORIA!!", message="CONGRATULAZIONI "+g1+" HAI VINTO!!!!")
             break
-        elif (v=="G2"):
-            print("\n","CONGRATULAZIONI", g2," HAI VINTO!!!!")
-            creatabellone(m)
+        elif (vintoono(vincitore)=="G2"):
+            tkinter.messagebox.showinfo(title="VITTORIA!!", message="CONGRATULAZIONI "+g2+" HAI VINTO!!!!")
             break
-        elif (controllotabpieno(m)==True):
-            print("\n","NESSUN GIOCATORE HA VINTO! ANDRA' MEGLIO LA PROSSIMA VOLTA!!")
-            creatabellone(m)
-            break
+        turno+=1
         #Scrittura su file del numero del tabellone
         f.write(str(m)+"\n")
     f.close()
-    return "PARTITA TERMINATA"
+def mod2graph(): #MBA
+    global f
+    f=open(r"tabellone.txt","a")
+    global m
+    m=[["","",""],["","",""],["","",""]]
+    simbolovitt="S"
+    v="G0"
+    vincitore="G0"
+    while (v!="G1" or v!="G2"):
+        tabgraph2()
+        break
+    tkinter.messagebox.showinfo(title="PARTITA TERMINATA", message="Partita terminata!")
+def tabgraph3(): #MBA
+    global turno
+    vincitore="G0"
+    turno=randint(0,1)
+    while turno!=-1:
+        if (turno==0):
+            g=g1
+            mossasucc="g2"
+            global w1
+            w1=Tk()
+            w1.title("PYTRIS G1 VS PC")
+            w1.geometry("%dx%d+%d+%d" % (200, 200, 600, 250))
+            intest=Label(w1,text="TABELLONE (G1 VS PC)",font="Tahoma 12 bold")
+            intest.pack()
+            f1=Frame(w1)
+            f1.pack()
+            b00=Button(f1,text=m[0][0],command=addsimbolo00)
+            b01=Button(f1,text=m[0][1],command=addsimbolo01)
+            b02=Button(f1,text=m[0][2],command=addsimbolo02)
+            b10=Button(f1,text=m[1][0],command=addsimbolo10)
+            b11=Button(f1,text=m[1][1],command=addsimbolo11)
+            b12=Button(f1,text=m[1][2],command=addsimbolo12)
+            b20=Button(f1,text=m[2][0],command=addsimbolo20)
+            b21=Button(f1,text=m[2][1],command=addsimbolo21)
+            b22=Button(f1,text=m[2][2],command=addsimbolo22)
+            b00.grid(row=0,column=0)
+            b01.grid(row=0,column=1)
+            b02.grid(row=0,column=2)
+            b10.grid(row=1,column=0)
+            b11.grid(row=1,column=1)
+            b12.grid(row=1,column=2)
+            b20.grid(row=2,column=0)
+            b21.grid(row=2,column=1)
+            b22.grid(row=2,column=2)
+            fg=Frame(w1)
+            fg.pack()
+            tg="Turno di "+g
+            giocatore=Label(fg,text=tg)
+            giocatore.pack()
+            w1.mainloop()
+            w1.destroy()
+        elif (turno==1):
+            g=g2
+            mossasucc="g1"
+            if (m==controllotabellone(0)):
+                mOld=controllotabellone(1)
+                attaccoByTabVecchio(m,mOld)
+            elif (controllocelle(m)==False):
+                if (controllocellenemiche(m)==False):
+                    attaccocasuale(m,mossasucc)
+        if (turno==1):
+            turno=-1
+        if (controllotabpieno(m)==True):
+            tkinter.messagebox.showinfo(title="PAREGGIO!!", message="Nessun giocatore ha vinto! Andrà meglio la prossima volta!!")
+            break
+        if (vittoriaono(m,mossasucc)=="X"):
+            vincitore="g1"
+        if (vittoriaono(m,mossasucc)=="O"):
+            vincitore="g2"
+        if (vintoono(vincitore)=="G1"):
+            tkinter.messagebox.showinfo(title="VITTORIA!!", message="CONGRATULAZIONI "+g1+" HAI VINTO!!!!")
+            break
+        elif (vintoono(vincitore)=="G2"):
+            tkinter.messagebox.showinfo(title="VITTORIA!!", message="CONGRATULAZIONI "+g2+" HAI VINTO!!!!")
+            break
+        turno+=1
+        #Scrittura su file del numero del tabellone
+        f.write(str(m)+"\n")
+    f.close()
+def mod3graph(): #MBA
+    global f
+    f=open(r"tabellone.txt","r+")
+    global m
+    m=[["","",""],["","",""],["","",""]]
+    simbolovitt="S"
+    v="G0"
+    vincitore="G0"
+    while (v!="G1" or v!="G2"):
+        tabgraph3()
+        break
+    tkinter.messagebox.showinfo(title="PARTITA TERMINATA", message="Partita terminata!")
 def showmexinfo():
     tkinter.messagebox.showinfo(title="INFO IMPOSTAZIONI",message="Per modificare le impostazioni chiudere la versione grafica del gioco e salvare da quella testuale. Poi, rientrare nella versione grafica")
 def welcomegraph(): #MBA
@@ -718,9 +874,9 @@ def welcomegraph(): #MBA
     subtitle.pack()
     mod1=Button(f,text="Modalità 1: G1 VS G2",command=mod1graph)
     mod1.pack()
-    mod2=Button(f,text="Modalità 2: G1 VS PC",command=modalita2)
+    mod2=Button(f,text="Modalità 2: G1 VS PC",command=mod2graph)
     mod2.pack()
-    mod3=Button(f,text="Modalità 3: G1 VS SUPER PC",command=modalita3)
+    mod3=Button(f,text="Modalità 3: G1 VS SUPER PC",command=mod3graph)
     mod3.pack()
     bs=Button(f,text="IMPOSTAZIONI",command=showmexinfo)
     bs.pack()
@@ -797,13 +953,13 @@ while (scelta!=-2):
             nv=str(input("Inserire il nuovo valore del parametro inserito: "))
             st[scs]=nv
         print("SALVATAGGIO AVVENUTO CORRETTAMENTE!","\n")
-print("GRAZIE PER AVER UTILIZZATO PYTRIS v. 2.1.1b")
-##### AGGIORNAMENTO FILES E CHIUSURA #####
-sts=open(r"settings.txt","w")
-ch=list(st.keys())
-i=0
-while i<len(ch):
-    val=ch[i]+":"+str(st[ch[i]])+"\n"    
-    sts.write(val)
-    i=i+1
-sts.close()
+        ##### AGGIORNAMENTO FILES E CHIUSURA #####
+        sts=open(r"settings.txt","w")
+        ch=list(st.keys())
+        i=0
+        while i<len(ch):
+            val=ch[i]+":"+str(st[ch[i]])+"\n"    
+            sts.write(val)
+            i=i+1
+        sts.close()
+print("GRAZIE PER AVER UTILIZZATO PYTRIS v. 2.2")
