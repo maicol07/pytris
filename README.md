@@ -1,5 +1,7 @@
 <img src="http://i.imgur.com/y5qzEot.gif" align="right" />
 
+# SVILUPPO INTERROTTO!!! Questo progetto è nato come progetto scolastico e non verrà più aggiornato
+
 # Pytris: TRIS IN PYTHON
 Tris game written in Python by Gruppo 2 - 2A
 ## Funzionalità
